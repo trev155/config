@@ -9,8 +9,9 @@
 function modifyLSCOLORS {
   ## Colours that are displayed when using "ls"
   ## Colour Picker: https://geoff.greer.fm/lscolors/
-  local DIR=gx
-  local SYMLINK=fx
+  ## Colour codes: http://www.norbauer.com/rails-consulting/notes/ls-colors-and-terminal-app.html
+  local DIR=fx
+  local SYMLINK=Fx
   local SOCKET=cx
   local PIPE=ex
   local EXEC=bx
