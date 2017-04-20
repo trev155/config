@@ -10,11 +10,11 @@ function modifyLSCOLORS {
   ## Colours that are displayed when using "ls"
   ## Colour Picker: https://geoff.greer.fm/lscolors/
   ## Colour codes: http://www.norbauer.com/rails-consulting/notes/ls-colors-and-terminal-app.html
-  local DIR=fx
+  local DIR=Ex
   local SYMLINK=Fx
   local SOCKET=cx
   local PIPE=ex
-  local EXEC=bx
+  local EXEC=Bx
   local BLOCKSPC=dx
   local CHARSPC=dx
   local SETUID=dx
@@ -49,16 +49,38 @@ function modifyPS1 {
   local CYANBOLD='\[\033[1;36m\]'
   local WHITE='\[\033[0;37m\]'
   local WHITEBOLD='\[\033[1;37m\]'
+  local RESET='\[\e[00m\]'
 
   # Notify if ssh session
   if [ -n "$SSH_CLIENT" ]; then 
     isSSH="[ssh-session]" 
   fi
 
-  export PS1="$CYAN[\d, \@]$BLUE(\u@\h)$PURPLEBOLD[\w]$isSSH\$ \e[0m"
+  export PS1="$CYAN[\d, \@]$BLUE(\u@\h)$PURPLEBOLD[\w]$isSSH\$ $RESET"
 }
 
 ## Prompt customization
 modifyLSCOLORS
 modifyPS1
+
+
+###########
+## Other ##
+###########
+## PATH additions
+export PATH=/usr/local/bin:$PATH
+export PATH=/bin:sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=$PATH:/Users/trku/bin
+export PATH=$PATH:/Users/trku/files/scripts
+
+## Local environment
+# From le
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+export MAVEN_OPTS="-XX:PermSize=128m -XX:MaxPermSize=256m -Xms512m -Xmx1024m"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# fes
+eval "$(nodenv init -)"
+
 
