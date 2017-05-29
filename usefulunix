@@ -1,8 +1,0 @@
-# find recursively, all files and folders
-find . -name "test*"
-
-# grep, locate text in a file (simple)
-grep <text> <file>
-
-# grep, locate text in all files from this dir
-grep -r <text> *

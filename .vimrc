@@ -11,3 +11,7 @@ set paste
 colo slate
 syntax on
 
+"Smarter indenting
+set autoindent
+set smartindent
+
